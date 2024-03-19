@@ -24,13 +24,48 @@ aumenta_dez_porcento = partial(
 )
 
 
-# Utilizando list comprehension
-novos_produtos = [
-    # Espandindo o dicionário com **p
-    {**p,
-    'preco': aumenta_dez_porcento(p['preco'])} 
-    for p in produtos
-]
+# # Utilizando list comprehension
+# novos_produtos = [
+#     # Espandindo o dicionário com **p
+#     {**p,
+#     'preco': aumenta_dez_porcento(p['preco'])} 
+#     for p in produtos
+# ]
+
+def muda_preco_de_produtos(produto):
+    return {
+        **produto,
+        'preco': aumenta_dez_porcento(
+            produto['preco']
+        )
+    }
+
+# Utilizando a função map()
+novos_produtos = map(
+    # Aqui, map passa esta função em cada um dos produtos
+    muda_preco_de_produtos,
+    produtos
+)
 
 print_iter(produtos)
 print_iter(novos_produtos)
+
+
+#########################
+# Só um exemplo simples de mapear lista com valores triplicados
+
+# Organizando os parâmetros de map()
+print(
+    list(
+        map(
+            # O primeiro sempre é uma função
+            lambda x: x * 3, # lambda de x, me retorne x * 3
+
+            # Segundo parâmtro são os argumentos que serão usados
+            # neste caso, foi uma lista
+            [1, 2, 3, 4]
+            # Para cada argumento, retorne o argumento * 3
+            # Result: [3, 6, 9, 12]
+        )
+    )
+)
