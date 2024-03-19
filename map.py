@@ -1,3 +1,5 @@
+from functools import partial
+
 # map - para mapear dados
 
 def print_iter(iterator):
@@ -15,11 +17,18 @@ produtos = [
 def aumentar_porcentagem(valor, porcentagem):
     return round(valor * porcentagem, 2)
 
+# Criando uma função com parcial que executa outra função
+aumenta_dez_porcento = partial(
+    aumentar_porcentagem,
+    porcentagem = 1.1
+)
+
+
 # Utilizando list comprehension
 novos_produtos = [
     # Espandindo o dicionário com **p
     {**p,
-    'preco': aumentar_porcentagem(p['preco'], 1.1)} 
+    'preco': aumenta_dez_porcento(p['preco'])} 
     for p in produtos
 ]
 
