@@ -31,27 +31,36 @@ caminho_arquivo += 'arquivos.txt'
 # Sempre que abrir um arquivo, já adicionar o close para evitar problemas
 # arquivo.close()
 
-with open(caminho_arquivo, 'w+') as arquivo:
+# with open(caminho_arquivo, 'w+') as arquivo:
+#     arquivo.write('linha 1\n')
+#     arquivo.write('linha 2\n')
+#     arquivo.writelines(
+#         ('linha 3\n', 'linha 4\n')
+#     )
+#     arquivo.seek(0, 0)
+#     print(arquivo.read())
+#     print('lendo')
+#     arquivo.seek(0, 0)
+#     print(arquivo.readline(), end='') # Removendo as quebras de linha extras
+#     print(arquivo.readline().strip()) # Removendo as quebras de linha extras, com strip para string
+#     print(arquivo.readline().strip()) # Removendo as quebras de linha extras, com strip para string
+
+#     print("READLINES")
+#     arquivo.seek(0, 0)
+#     for linha in arquivo.readlines():
+#         print(linha.strip())
+
+# print('#' * 20)
+
+
+# with open(caminho_arquivo, 'r') as arquivo:
+#     print(arquivo.read())
+
+# "a" seria o modo append (abrir e acrescentar conteúdo a ele, com write)
+with open(caminho_arquivo, 'w') as arquivo:
+    arquivo.write('Atenção\n')
     arquivo.write('linha 1\n')
     arquivo.write('linha 2\n')
     arquivo.writelines(
         ('linha 3\n', 'linha 4\n')
     )
-    arquivo.seek(0, 0)
-    print(arquivo.read())
-    print('lendo')
-    arquivo.seek(0, 0)
-    print(arquivo.readline(), end='') # Removendo as quebras de linha extras
-    print(arquivo.readline().strip()) # Removendo as quebras de linha extras, com strip para string
-    print(arquivo.readline().strip()) # Removendo as quebras de linha extras, com strip para string
-
-    print("READLINES")
-    arquivo.seek(0, 0)
-    for linha in arquivo.readlines():
-        print(linha.strip())
-
-print('#' * 20)
-
-
-with open(caminho_arquivo, 'r') as arquivo:
-    print(arquivo.read())
