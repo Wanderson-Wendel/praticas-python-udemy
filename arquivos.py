@@ -1,3 +1,5 @@
+import os
+
 # Criando arquivos com Python
 # Usamos a função open para abrir um arquivo
 # em Python (ele pode ou não existir)
@@ -64,3 +66,6 @@ with open(caminho_arquivo, 'w') as arquivo:
     arquivo.writelines(
         ('linha 3\n', 'linha 4\n')
     )
+
+# os.unlink(caminho_arquivo) Deleta aquele arquivo criado
+# os.rename(caminho_arquivo, "Oineeeerrr.txt") Renomea, passando os parametros: nome antigo e o novo
